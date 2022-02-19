@@ -33,8 +33,6 @@ public class Car {
         ownerName = newOwnerName;
     }
     // inner clas
-    private class Test {
 
-    }
 
 }
