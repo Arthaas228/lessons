@@ -9,12 +9,12 @@ public class Message extends BaseEntity{
     Date dateSent;
     Date dateRead;
 
-    public Message(String message, User userFrom, User userTo, long id ) {
+    public Message(long id, User userFrom, User userTo, String message) {
         super(id);
-        this.message = message;
         this.userFrom = userFrom;
         this.userTo = userTo;
         this.dateSent = new Date();
+        this.message = message;
 
     }
     void setDateRead(){

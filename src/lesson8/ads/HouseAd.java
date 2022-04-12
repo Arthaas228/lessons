@@ -6,14 +6,13 @@ public class HouseAd extends Ad{
     int floors;
     String ownerName;
 
-    public HouseAd(long id, int price, String address, double square, int floors, String ownerName) {
+    public HouseAd(long id, int price, String ownerName, String address, double square, int floors) {
         super(id, price);
+        this.ownerName = ownerName;
         this.address = address;
         this.square = square;
         this.floors = floors;
-        this.ownerName = ownerName;
     }
-
     boolean checkOwner(){
         Owners owners = new Owners();
         for(String owner : owners.owners){
