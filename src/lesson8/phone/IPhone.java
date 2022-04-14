@@ -9,7 +9,8 @@ public class IPhone extends Phone {
         this.countryPriduced = countryPriduced;
         System.out.println("IPhone constructor was invoked");
     }
-    void deleteIPhoneFromDb(){
+
+    void deleteIPhoneFromDb() {
         System.out.println("deleteIPhoneFromDb invoked...");
     }
 }
