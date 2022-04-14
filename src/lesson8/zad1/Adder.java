@@ -4,7 +4,7 @@ package lesson8.zad1;
 public class Adder extends Arithmetic {
 
 
-    public int add(int a, int b) {
+    public static int add(int a, int b) {
 
         return a + b;
     }
@@ -14,7 +14,6 @@ public class Adder extends Arithmetic {
         int x = 10;
         int y = 20;
 
-        Adder ac = new Adder();
-        System.out.println(ac.add(x, y));
+        System.out.println(add(x, y));
     }
 }
