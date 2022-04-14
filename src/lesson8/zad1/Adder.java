@@ -4,7 +4,7 @@ package lesson8.zad1;
 public class Adder extends Arithmetic {
 
 
-    int add(int a, int b) {
+    public int add(int a, int b) {
 
         return a + b;
     }
