@@ -1,5 +1,6 @@
 
 package lesson8.zad1;
+
 public class Adder extends Arithmetic {
 
 
