@@ -1,7 +1,14 @@
 package lesson8.zad2;
 
-public class Demo {
-    public static void main(String[] args) {
+import java.util.Date;
+
+
+public class Demo extends Course {
+
+    public Demo(Date startDate, String name, int hoursDuration, String teacherName, Student students) {
+        super(startDate, name, hoursDuration, teacherName, students);
+    }
+    public void createLowestParent(){
 
 
 
@@ -9,4 +16,11 @@ public class Demo {
 
 
     }
+    public void createHighestParent(){
+
+    }
+
 }
+
+
+
