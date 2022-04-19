@@ -1,26 +1,12 @@
 package lesson8.zad2;
 
-import java.util.Date;
-
-
-public class Demo extends Course {
-
-    public Demo(Date startDate, String name, int hoursDuration, String teacherName, Student students) {
-        super(startDate, name, hoursDuration, teacherName, students);
+public class Demo {
+    public Student createHighestParent (String firstName, String lastName, int group, Course[] coursesTaken){
+        return new Student(firstName, lastName, group, coursesTaken);
     }
-    public void createLowestParent(){
-
-
-
-
-
-
-    }
-    public void createHighestParent(){
-
+    public SpecialStudent createLowestParent(String firstName, String lastName, int group, Course[] coursesTaken,
+                                             long secretKey, String email, String collegeName, int rating, long id){
+        return new SpecialStudent(firstName, lastName, group, coursesTaken, secretKey, email, collegeName, rating, id);
     }
 
 }
-
-
-

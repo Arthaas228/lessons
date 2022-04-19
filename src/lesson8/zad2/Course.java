@@ -1,14 +1,15 @@
 package lesson8.zad2;
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Course {
     Date startDate;
     String name;
     int hoursDuration;
     String teacherName;
-    Student students;
+    Student[] students;
 
-    public Course(Date startDate, String name, int hoursDuration, String teacherName, Student students) {
+    public Course(Date startDate, String name, int hoursDuration, String teacherName, Student[] students) {
         this.startDate = startDate;
         this.name = name;
         this.hoursDuration = hoursDuration;
@@ -16,4 +17,3 @@ public class Course {
         this.students = students;
     }
 }
-
