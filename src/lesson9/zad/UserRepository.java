@@ -15,20 +15,26 @@ public class UserRepository {
     }
 
     public String[] getUserNames() {
-        return Arrays.stream(users).map(User::getName).collect(Collectors.toList()).toArray(new String[users.length]);
+        String[] userNames = new String[users.length];
+        for (int i = 0; i < users.length; ++i) {
+            userNames[i] = users[i].getName();
+        }
+        return userNames;
     }
 
     public Long[] getUserIds() {
-        return Arrays.stream(users).map(User::getId).collect(Collectors.toList()).toArray(new Long[users.length]);
+        Long[] userIds = new Long[users.length];
+        for (int i = 0; i < users.length; ++i) {
+            userIds[i] = users[i].getId();
+        }
+        return userIds;
     }
 
     public String getUserNameById(long id) {
-        var user = Arrays.stream(users)
-                .filter(customer -> id == customer.getId())
-                .findAny()
-                .orElse(null);
-        if(user == null)
-            return null;
-        return user.getName();
+        for (User user : users) {
+            if (user.getId() == id)
+                return user.getName();
+        }
+        return null;
     }
 }
