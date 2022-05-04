@@ -1,5 +1,4 @@
 package lesson9.zad;
-
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -34,6 +33,30 @@ public class UserRepository {
         for (User user : users) {
             if (user.getId() == id)
                 return user.getName();
+        }
+        return null;
+    }
+
+    public User getUserByName(String name) {
+        for (User user : users) {
+            if (user.getName().equals(name))
+                return user;
+        }
+        return null;
+    }
+
+    public User getUserById(long id) {
+        for (User user : users) {
+            if (user.getId() == id)
+                return user;
+        }
+        return null;
+    }
+
+    public User getUserBySessionId(String sessionId) {
+        for (User user : users) {
+            if (user.getSessionId().equals(sessionId))
+                return user;
         }
         return null;
     }
