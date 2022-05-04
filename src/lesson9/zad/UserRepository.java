@@ -1,4 +1,5 @@
 package lesson9.zad;
+
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -21,20 +22,13 @@ public class UserRepository {
         return userNames;
     }
 
-    public Long[] getUserIds() {
-        Long[] userIds = new Long[users.length];
-        for (int i = 0; i < users.length; ++i) {
+    public long[] getUserIds() {
+        long[] userIds = new long[users.length];
+        for (int i = 0; i < userIds.length; ++i) {
             userIds[i] = users[i].getId();
+
         }
         return userIds;
-    }
-
-    public String getUserNameById(long id) {
-        for (User user : users) {
-            if (user.getId() == id)
-                return user.getName();
-        }
-        return null;
     }
 
     public User getUserByName(String name) {
@@ -59,5 +53,8 @@ public class UserRepository {
                 return user;
         }
         return null;
+    }
+    public User Save(User user){
+
     }
 }
