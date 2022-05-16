@@ -1,8 +1,5 @@
 package lesson9.zad;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 public class UserRepository {
     private User[] users;
 
@@ -22,13 +19,20 @@ public class UserRepository {
         return userNames;
     }
 
-    public long[] getUserIds() {
-        long[] userIds = new long[users.length];
-        for (int i = 0; i < userIds.length; ++i) {
+    public Long[] getUserIds() {
+        Long[] userIds = new Long[users.length];
+        for (int i = 0; i < users.length; ++i) {
             userIds[i] = users[i].getId();
-
         }
         return userIds;
+    }
+
+    public String getUserNameById(long id) {
+        for (User user : users) {
+            if (user.getId() == id)
+                return user.getName();
+        }
+        return null;
     }
 
     public User getUserByName(String name) {
@@ -39,9 +43,9 @@ public class UserRepository {
         return null;
     }
 
-    public User getUserById(long id) {
+    private User findById(long id) {
         for (User user : users) {
-            if (user.getId() == id)
+            if (user != null && user.getId() == id)
                 return user;
         }
         return null;
@@ -54,7 +58,22 @@ public class UserRepository {
         }
         return null;
     }
-    public User Save(User user){
 
+    // part 4
+
+    public User save(User user) {
+        int indexOfEmptyUser = -1;
+        for (int i = 0; i < users.length; i++) {
+            if(users[i] == null)
+                indexOfEmptyUser = i;
+        }
+        if(indexOfEmptyUser == -1)
+            return null;
+
+        var foundUser = findById(user.getId());
+        if(foundUser != null)
+            return null;
+        users[indexOfEmptyUser] = user;
+        return user;
     }
 }
