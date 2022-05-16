@@ -76,4 +76,31 @@ public class UserRepository {
         users[indexOfEmptyUser] = user;
         return user;
     }
+    // part 5
+
+    public User update(User user) {
+        if(user == null)
+            return null;
+        var foundUser = findById(user.getId());
+        if(foundUser == null)
+            return null;
+        for(int i = 0; i < users.length; i++) {
+            if(users[i].getId() == user.getId()) {
+                users[i] = user;
+            }
+        }
+        return user;
+    }
+
+    public void delete(long id) {
+        var user = findById(id);
+        if(user == null)
+            return;
+        for(int i = 0; i < users.length; i++) {
+            if(users[i].getId() == id) {
+                users[i] = null;
+            }
+        }
+    }
 }
+
