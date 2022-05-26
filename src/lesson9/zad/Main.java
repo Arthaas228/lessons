@@ -15,8 +15,7 @@ public class Main {
         User user5 = new User(6, "user6", "session_id6");
         User user6 = new User(7, "user7", "session_id7");
         User user7 = new User(8, "user8", "session_id8");
-        User user8 = new User(9, "user9", "session_id9");
-        User user9 = new User(10, "user10", "session_id10");
+
 
 
         users[0] = user;
@@ -27,8 +26,7 @@ public class Main {
         users[5] = user5;
         users[6] = user6;
         users[7] = user7;
-        users[8] = user8;
-        users[9] = user9;
+
 
         UserRepository userRepository = new UserRepository(users);
 

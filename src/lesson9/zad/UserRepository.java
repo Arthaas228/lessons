@@ -29,7 +29,7 @@ public class UserRepository {
 
     public String getUserNameById(long id) {
         for (User user : users) {
-            if (user.getId() == id)
+            if (user != null && user.getId() == id)
                 return user.getName();
         }
         return null;
@@ -37,7 +37,7 @@ public class UserRepository {
 
     public User getUserByName(String name) {
         for (User user : users) {
-            if (user.getName().equals(name))
+            if (user != null && user.getName().equals(name))
                 return user;
         }
         return null;
@@ -53,7 +53,7 @@ public class UserRepository {
 
     public User getUserBySessionId(String sessionId) {
         for (User user : users) {
-            if (user.getSessionId().equals(sessionId))
+            if (user != null && user.getSessionId().equals(sessionId))
                 return user;
         }
         return null;
@@ -64,7 +64,7 @@ public class UserRepository {
     public User save(User user) {
         int indexOfEmptyUser = -1;
         for (int i = 0; i < users.length; i++) {
-            if(users[i] == null)
+            if(user != null && users[i] == null)
                 indexOfEmptyUser = i;
         }
         if(indexOfEmptyUser == -1)
