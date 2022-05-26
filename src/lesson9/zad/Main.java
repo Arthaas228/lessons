@@ -28,6 +28,8 @@ public class Main {
         users[7] = user7;
 
 
+
+
         UserRepository userRepository = new UserRepository(users);
 
 
@@ -37,8 +39,8 @@ public class Main {
         String[] usersName = userRepository.getUserNames();
         System.out.println(Arrays.toString(usersName));
 
-        Long[] usersId = userRepository.getUserIds();
-        System.out.println(Arrays.toString(usersId));
+        long[] userIds = userRepository.getUserIds();
+        System.out.println(Arrays.toString(userIds));
 
         String name = userRepository.getUserNameById(4);
         System.out.println(name);
@@ -52,6 +54,7 @@ public class Main {
 
         userRepository.delete(6);
         System.out.println(Arrays.toString( userRepository.getUsers()));
+
 
 
 
