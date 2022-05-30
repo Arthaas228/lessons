@@ -18,6 +18,7 @@ public class UserRepository {
             if (user != null) {
                 names[index] = user.getName();
                 index++;
+                System.out.println(names);
             }
         }
         return names;
@@ -106,9 +107,10 @@ public class UserRepository {
         if (foundUser == null)
             return null;
         for (int i = 0; i < users.length; i++) {
-            if (users[i].getId() == user.getId()) {
+            if (users[i] != null && users[i].getId() == user.getId()) {
                 users[i] = user;
             }
+
         }
         return user;
     }
@@ -118,7 +120,7 @@ public class UserRepository {
         if (user == null)
             return;
         for (int i = 0; i < users.length; i++) {
-            if (users[i].getId() == id) {
+            if (users[i] != null &&users[i].getId() == id) {
                 users[i] = null;
             }
         }
