@@ -2,15 +2,18 @@ package lesson10.dz;
 
 import java.util.Date;
 
-public class Order {
-    String itemName;
-    Date dateCreated;
-    Date dateConfirmed;
-    Date dateShipped;
-    String shipToCity;
-    int basePrice;
-    Double totalPrice;
-    Customer customerOwned;
+public abstract class Order {
+    private static String itemName;
+    private static Date dateCreated;
+    private static Date dateConfirmed = new Date();
+    private static Date dateShipped;
+    private static String shipFromCity;
+    private static String shipToCity;
+    private static int basePrice;
+    private static double totalPrice;
+    private static Customer customerOwned = new Customer("Женя", "Киев", "Женщина");
+
+
 
     public Order(String itemName, Date dateCreated, String shipToCity, int basePrice, Customer customerOwned) {
         this.itemName = itemName;
@@ -20,62 +23,66 @@ public class Order {
         this.customerOwned = customerOwned;
     }
 
-    public String getItemName() {
-        return itemName;
+    public Order(String itemName, Date dateCreated, String shipToCity, double fullPrice, Customer customerOwned) {
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
-    }
 
     public Date getDateConfirmed() {
         return dateConfirmed;
-    }
-
-    public Date getDateShipped() {
-        return dateShipped;
-    }
-
-    public String getShipToCity() {
-        return shipToCity;
-    }
-
-    public int getBasePrice() {
-        return basePrice;
-    }
-
-    public Double getTotalPrice() {
-        return totalPrice;
     }
 
     public void setDateConfirmed(Date dateConfirmed) {
         this.dateConfirmed = dateConfirmed;
     }
 
-    public void setDateShipped(Date dateShipped) {
+    public String getItemName(){
+        return itemName;
+    }
+
+    public Date getDateCreated(){
+        return dateCreated;
+    }
+
+    public Date getDateShipped(){
+        return dateShipped;
+    }
+
+    public void setDateShipped(Date dateShipped){
         this.dateShipped = dateShipped;
     }
 
-    public void setTotalPrice(Double totalPrice) {
+    public String getShipFromCity(){
+        return shipFromCity;
+    }
+
+
+    public String getShipToCity(){
+        return shipToCity;
+    }
+
+    public int getBasePrice(){
+        return basePrice;
+    }
+
+    public double getTotalPrice(){
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public Customer getCustomerOwned() {
-
+    public Customer getCustomerOwned(){
         return customerOwned;
     }
 
-    void validateOrder(){
 
-    }
-    void calculatePrice(){
+    abstract void validateOrder();
 
-    }
-    void confirmShipping(){
-        Date date = new Date();
-        System.out.println(date.toString());
+    abstract double calculatePrice(int basePrice);
 
 
-    }
 
 }
+
+
