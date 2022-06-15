@@ -6,56 +6,48 @@ public class FurnitureOrder extends Order {
     private static int guaranteeMonths;
     private String customerCity = getCustomerOwned().getCity();
     private String customerName = getCustomerOwned().getName();
-    private int basePrice = getBasePrice();
+    private int basePrice;
     private String itemName;
     private Date dateCreated;
     private String shipToCity;
-    private double fullPrice;
 
-    public FurnitureOrder(String itemName, Date dateCreated, String shipToCity, int basePrice, Customer customerOwned, String furnitureCode) {
-        super(itemName, dateCreated, shipToCity, basePrice, customerOwned);
+    public FurnitureOrder(String itemName, Date dateCreated, String shipToCity, String shipFromCity, int basePrice, Customer customerOwned, String furnitureCode) {
+        super(itemName, dateCreated, shipToCity, shipFromCity, basePrice, customerOwned);
         this.furnitureCode = furnitureCode;
         this.itemName = itemName;
         this.dateCreated = dateCreated;
         this.shipToCity = shipToCity;
         this.basePrice = basePrice;
 
-        if (customerName == "Тест" || basePrice<500) {
-            System.out.println("<----------------------------------------------------------------------------->");
-            System.out.println("Price for the product must be higher then 500 hrn and your name can't be 'Тест'");
-            System.out.println("<----------------------------------------------------------------------------->");
-        }
-        else {
-            validateOrder();
-            calculatePrice(basePrice);
-        }
+        calculatePrice(basePrice);
+        validateOrder();
+        confirmShipping();
+
     }
     @Override
     void validateOrder() {
-        if (customerCity == "Киев") {
+        if ((getShipToCity() == "Киев" || getShipToCity() == "Харьков") && (getShipFromCity() == "Киев" || getShipFromCity() == "Харьков") && (customerName != "Тест" || basePrice >= 500)) {
             System.out.println("<-------------------------------------------------->");
-            System.out.println("We're happy to say the package is on the way to Kiev");
-            System.out.println("Full price: " + calculatePrice(basePrice));
+            System.out.println("We're happy to say the package is on the way to your city");
+            System.out.println("Full price: " + getTotalPrice());
             System.out.println("<-------------------------------------------------->");
-        } else if (customerCity == "Львов") {
-            System.out.println("<----------------------------------------------------->");
-            System.out.println("We're happy to say the package is on the way to Lviv");
-            System.out.println("Full price: " + calculatePrice(basePrice));
-            System.out.println("<----------------------------------------------------->");
         }
         else {
-            System.out.println("Your purchase can't be processed");
+            System.out.println("<--------------------------------------------------------------------->");
+            System.out.println("We're sorry to say but there's no opportunity to deliver your furniture");
+            System.out.println("<--------------------------------------------------------------------->");
         }
     }
     @Override
-    double calculatePrice(int basePrice) {
-        double fullPrice;
+    void calculatePrice(int basePrice) {
+        double totalPrice;
         if (basePrice<5000) {
-            return fullPrice = basePrice + basePrice * 0.05;
+            totalPrice = basePrice + basePrice * 0.05;
         }
         else {
-            return fullPrice = basePrice + basePrice * 0.02;
+            totalPrice = basePrice + basePrice * 0.02;
         }
+        setTotalPrice(totalPrice);
     }
 
     @Override
@@ -73,9 +65,6 @@ public class FurnitureOrder extends Order {
     @Override
     public String getShipToCity() {
         return shipToCity;
-    }
-    public double getFullPrice() {
-        return fullPrice;
     }
 
 }

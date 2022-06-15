@@ -5,7 +5,7 @@ import java.util.Date;
 public abstract class Order {
     private static String itemName;
     private static Date dateCreated;
-    private static Date dateConfirmed = new Date();
+    private static Date dateConfirmed;
     private static Date dateShipped;
     private static String shipFromCity;
     private static String shipToCity;
@@ -15,15 +15,16 @@ public abstract class Order {
 
 
 
-    public Order(String itemName, Date dateCreated, String shipToCity, int basePrice, Customer customerOwned) {
+    public Order(String itemName, Date dateCreated, String shipToCity, String shipFromCity, int basePrice, Customer customerOwned) {
         this.itemName = itemName;
         this.dateCreated = dateCreated;
         this.shipToCity = shipToCity;
+        this.shipFromCity = shipFromCity;
         this.basePrice = basePrice;
         this.customerOwned = customerOwned;
     }
 
-    public Order(String itemName, Date dateCreated, String shipToCity, double fullPrice, Customer customerOwned) {
+    public Order(String itemName, Date dateCreated, String shipToCity, String shipFromCity, double fullPrice, Customer customerOwned) {
     }
 
 
@@ -78,11 +79,15 @@ public abstract class Order {
 
 
     abstract void validateOrder();
+    abstract void calculatePrice(int basePrice);
 
-    abstract double calculatePrice(int basePrice);
+    void confirmShipping() {
+        dateConfirmed = new Date();
+    }
 
 
 
 }
+
 
 

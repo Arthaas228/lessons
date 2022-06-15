@@ -8,12 +8,12 @@ public class Demo{
     public static void main (String[] args) {
 
 
-        Customer customer1 = new Customer("Женя", "Харьков", "Мужчина");
-        Customer customer2 = new Customer("Тест", "Киев", "Мужчина");
+        Customer customer1 = new Customer("Женя", "Харьков", "Женщина");
+        Customer customer2 = new Customer("Алекс", "Киев", "Мужчина");
 
 
-        ElectronicsOrder order1 = new ElectronicsOrder("Phone", new Date(), "Киев", 1000, customer1, 1);
-        FurnitureOrder order2 = new FurnitureOrder("Chair", new Date(), "Киев", 600, customer2, "097689");
+        ElectronicsOrder order1 = new ElectronicsOrder("Phone", new Date(), "Киев", "Харьков", 1000, customer1, 12);
+        FurnitureOrder order2 = new FurnitureOrder("Chair", new Date(), "Киев", "Харьков",600, customer2, "097689");
 
     }
 }
