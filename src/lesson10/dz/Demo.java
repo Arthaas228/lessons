@@ -8,6 +8,8 @@ public class Demo{
     public static void main (String[] args) {
 
 
+
+
         Customer customer1 = new Customer("Женя", "Харьков", "Женщина");
         Customer customer2 = new Customer("Алекс", "Киев", "Мужчина");
 
