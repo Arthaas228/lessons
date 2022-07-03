@@ -22,6 +22,10 @@ public abstract class Order {
         this.shipFromCity = shipFromCity;
         this.basePrice = basePrice;
         this.customerOwned = customerOwned;
+
+        calculatePrice(basePrice);
+        validateOrder();
+        confirmShipping();
     }
 
     public Order(String itemName, Date dateCreated, String shipToCity, String shipFromCity, double fullPrice, Customer customerOwned) {
@@ -82,7 +86,7 @@ public abstract class Order {
     abstract void calculatePrice(int basePrice);
 
     void confirmShipping() {
-        dateConfirmed = new Date();
+        setDateConfirmed(new Date());
     }
 
 

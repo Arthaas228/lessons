@@ -23,10 +23,6 @@ public class ElectronicsOrder extends Order{
         this.shipToCity = shipToCity;
         this.basePrice = basePrice;
 
-        calculatePrice(basePrice);
-        validateOrder();
-        confirmShipping();
-
 
     }
 

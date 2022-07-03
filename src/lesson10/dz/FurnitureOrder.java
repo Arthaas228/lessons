@@ -19,10 +19,6 @@ public class FurnitureOrder extends Order {
         this.shipToCity = shipToCity;
         this.basePrice = basePrice;
 
-        calculatePrice(basePrice);
-        validateOrder();
-        confirmShipping();
-
     }
     @Override
     void validateOrder() {
